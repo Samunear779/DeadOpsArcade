@@ -35,32 +35,44 @@
             // 
             // playerButton
             // 
-            this.playerButton.Location = new System.Drawing.Point(437, 468);
+            this.playerButton.BackColor = System.Drawing.Color.Transparent;
+            this.playerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.playerButton.Font = new System.Drawing.Font("Monotype Corsiva", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerButton.ForeColor = System.Drawing.Color.Yellow;
+            this.playerButton.Location = new System.Drawing.Point(392, 558);
             this.playerButton.Name = "playerButton";
-            this.playerButton.Size = new System.Drawing.Size(147, 54);
+            this.playerButton.Size = new System.Drawing.Size(232, 58);
             this.playerButton.TabIndex = 0;
             this.playerButton.Text = "Player Creation";
-            this.playerButton.UseVisualStyleBackColor = true;
+            this.playerButton.UseVisualStyleBackColor = false;
             this.playerButton.Click += new System.EventHandler(this.playerButton_Click);
             // 
             // highScoreButton
             // 
-            this.highScoreButton.Location = new System.Drawing.Point(647, 468);
+            this.highScoreButton.BackColor = System.Drawing.Color.Transparent;
+            this.highScoreButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.highScoreButton.Font = new System.Drawing.Font("Monotype Corsiva", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highScoreButton.ForeColor = System.Drawing.Color.Yellow;
+            this.highScoreButton.Location = new System.Drawing.Point(603, 340);
             this.highScoreButton.Name = "highScoreButton";
-            this.highScoreButton.Size = new System.Drawing.Size(166, 41);
+            this.highScoreButton.Size = new System.Drawing.Size(197, 60);
             this.highScoreButton.TabIndex = 1;
             this.highScoreButton.Text = "High Scores";
-            this.highScoreButton.UseVisualStyleBackColor = true;
+            this.highScoreButton.UseVisualStyleBackColor = false;
             this.highScoreButton.Click += new System.EventHandler(this.highScoreButton_Click);
             // 
             // howToButton
             // 
-            this.howToButton.Location = new System.Drawing.Point(241, 468);
+            this.howToButton.BackColor = System.Drawing.Color.Transparent;
+            this.howToButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.howToButton.Font = new System.Drawing.Font("Monotype Corsiva", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.howToButton.ForeColor = System.Drawing.Color.Yellow;
+            this.howToButton.Location = new System.Drawing.Point(191, 348);
             this.howToButton.Name = "howToButton";
-            this.howToButton.Size = new System.Drawing.Size(128, 44);
+            this.howToButton.Size = new System.Drawing.Size(222, 52);
             this.howToButton.TabIndex = 2;
             this.howToButton.Text = "How To Play";
-            this.howToButton.UseVisualStyleBackColor = true;
+            this.howToButton.UseVisualStyleBackColor = false;
             this.howToButton.Click += new System.EventHandler(this.howToButton_Click);
             // 
             // MainMenu

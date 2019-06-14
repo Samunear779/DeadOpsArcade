@@ -17,7 +17,7 @@ namespace DeadOpsArcade
             InitializeComponent();
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void backButton_Click_1(object sender, EventArgs e)
         {
             Form1.ChangeScreen(this, "MainScreen");
         }

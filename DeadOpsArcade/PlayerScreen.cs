@@ -22,7 +22,7 @@ namespace DeadOpsArcade
             if(class1Box.Checked == true)
             {
                 GameScreen.heroHealth = 300;
-                GameScreen.heroSpeed = 7;
+                GameScreen.heroSpeed = 2;
             }
         }
 
@@ -31,7 +31,7 @@ namespace DeadOpsArcade
             if (class2Box.Checked == true)
             {
                 GameScreen.heroHealth = 200;
-                GameScreen.heroSpeed = 10;
+                GameScreen.heroSpeed = 4;
             }
         }
 
@@ -40,7 +40,7 @@ namespace DeadOpsArcade
             if (class3Box.Checked == true)
             {
                 GameScreen.heroHealth = 100;
-                GameScreen.heroSpeed = 13;
+                GameScreen.heroSpeed = 6;
             }
         }
 

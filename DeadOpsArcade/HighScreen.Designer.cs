@@ -34,14 +34,17 @@
             // backButton
             // 
             this.backButton.BackColor = System.Drawing.Color.Transparent;
-            this.backButton.ForeColor = System.Drawing.Color.Gold;
-            this.backButton.Location = new System.Drawing.Point(395, 415);
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.Font = new System.Drawing.Font("Monotype Corsiva", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.ForeColor = System.Drawing.Color.Yellow;
+            this.backButton.Location = new System.Drawing.Point(363, 525);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(155, 80);
-            this.backButton.TabIndex = 0;
+            this.backButton.Size = new System.Drawing.Size(263, 71);
+            this.backButton.TabIndex = 1;
+            this.backButton.Tag = "";
             this.backButton.Text = "BACK";
             this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.backButton.Click += new System.EventHandler(this.backButton_Click_1);
             // 
             // HighScreen
             // 

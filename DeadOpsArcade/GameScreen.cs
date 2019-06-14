@@ -40,7 +40,7 @@ namespace DeadOpsArcade
         #region Global Variables and Declarations
         public static string heroName;
         public static int lives;
-        public static int heroHealth;
+        public static int heroHealth = 200;
         public static int heroSpeed = 4;
 
         Boolean wKeyDown, aKeyDown, sKeyDown, dKeyDown, spaceKeyDown;
@@ -207,8 +207,6 @@ namespace DeadOpsArcade
             zTimer++;
             if (zTimer > 80)
             {
-                score = (score + 100);
-                scoreLabel.Text = ("Score: " + score);
                 spawnTime = true;
                 zTimer = 0;
             }
@@ -330,6 +328,8 @@ namespace DeadOpsArcade
             foreach (int i in zombiesToRemove)
             {
                 zombies.RemoveAt(i);
+                score = (score + 100);
+                scoreLabel.Text = (heroName + "'s  " + "Score: " + score);
             }
         }
         #endregion

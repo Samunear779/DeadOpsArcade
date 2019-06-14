@@ -39,71 +39,92 @@
             // 
             // heroTextBox
             // 
-            this.heroTextBox.Location = new System.Drawing.Point(414, 221);
+            this.heroTextBox.Font = new System.Drawing.Font("Monotype Corsiva", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.heroTextBox.Location = new System.Drawing.Point(493, 170);
             this.heroTextBox.Name = "heroTextBox";
-            this.heroTextBox.Size = new System.Drawing.Size(275, 20);
+            this.heroTextBox.Size = new System.Drawing.Size(166, 49);
             this.heroTextBox.TabIndex = 0;
             // 
             // playerLabel
             // 
             this.playerLabel.AutoSize = true;
-            this.playerLabel.Location = new System.Drawing.Point(338, 224);
+            this.playerLabel.BackColor = System.Drawing.Color.Transparent;
+            this.playerLabel.Font = new System.Drawing.Font("Monotype Corsiva", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerLabel.ForeColor = System.Drawing.Color.Yellow;
+            this.playerLabel.Location = new System.Drawing.Point(251, 170);
             this.playerLabel.Name = "playerLabel";
-            this.playerLabel.Size = new System.Drawing.Size(70, 13);
+            this.playerLabel.Size = new System.Drawing.Size(200, 45);
             this.playerLabel.TabIndex = 2;
             this.playerLabel.Text = "Player Name:";
             // 
             // class1Box
             // 
             this.class1Box.AutoSize = true;
-            this.class1Box.Location = new System.Drawing.Point(414, 300);
+            this.class1Box.BackColor = System.Drawing.Color.Transparent;
+            this.class1Box.Font = new System.Drawing.Font("Monotype Corsiva", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.class1Box.ForeColor = System.Drawing.Color.Yellow;
+            this.class1Box.Location = new System.Drawing.Point(345, 250);
             this.class1Box.Name = "class1Box";
-            this.class1Box.Size = new System.Drawing.Size(173, 17);
+            this.class1Box.Size = new System.Drawing.Size(348, 40);
             this.class1Box.TabIndex = 3;
             this.class1Box.Text = "Slowest Speed, Highest Health";
-            this.class1Box.UseVisualStyleBackColor = true;
+            this.class1Box.UseVisualStyleBackColor = false;
             this.class1Box.CheckedChanged += new System.EventHandler(this.class1Box_CheckedChanged);
             // 
             // class2Box
             // 
             this.class2Box.AutoSize = true;
-            this.class2Box.Location = new System.Drawing.Point(414, 355);
+            this.class2Box.BackColor = System.Drawing.Color.Transparent;
+            this.class2Box.Font = new System.Drawing.Font("Monotype Corsiva", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.class2Box.ForeColor = System.Drawing.Color.Yellow;
+            this.class2Box.Location = new System.Drawing.Point(345, 330);
             this.class2Box.Name = "class2Box";
-            this.class2Box.Size = new System.Drawing.Size(166, 17);
+            this.class2Box.Size = new System.Drawing.Size(344, 40);
             this.class2Box.TabIndex = 4;
             this.class2Box.Text = "Normal Speed, Normal Health";
-            this.class2Box.UseVisualStyleBackColor = true;
+            this.class2Box.UseVisualStyleBackColor = false;
             this.class2Box.CheckedChanged += new System.EventHandler(this.calssBox2_CheckedChanged);
             // 
             // class3Box
             // 
             this.class3Box.AutoSize = true;
-            this.class3Box.Location = new System.Drawing.Point(414, 403);
+            this.class3Box.BackColor = System.Drawing.Color.Transparent;
+            this.class3Box.Font = new System.Drawing.Font("Monotype Corsiva", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.class3Box.ForeColor = System.Drawing.Color.Yellow;
+            this.class3Box.Location = new System.Drawing.Point(344, 403);
             this.class3Box.Name = "class3Box";
-            this.class3Box.Size = new System.Drawing.Size(170, 17);
+            this.class3Box.Size = new System.Drawing.Size(340, 40);
             this.class3Box.TabIndex = 5;
-            this.class3Box.Text = "Highest Speed, Lowest Health";
-            this.class3Box.UseVisualStyleBackColor = true;
+            this.class3Box.Text = "Fastest Speed, Lowest Health";
+            this.class3Box.UseVisualStyleBackColor = false;
             this.class3Box.CheckedChanged += new System.EventHandler(this.classBox3_CheckedChanged);
             // 
             // playButton
             // 
-            this.playButton.Location = new System.Drawing.Point(351, 98);
+            this.playButton.BackColor = System.Drawing.Color.Transparent;
+            this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.playButton.Font = new System.Drawing.Font("Monotype Corsiva", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playButton.ForeColor = System.Drawing.Color.Yellow;
+            this.playButton.Location = new System.Drawing.Point(516, 476);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(320, 72);
             this.playButton.TabIndex = 6;
             this.playButton.Text = "PLAY";
-            this.playButton.UseVisualStyleBackColor = true;
+            this.playButton.UseVisualStyleBackColor = false;
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(341, 476);
+            this.backButton.BackColor = System.Drawing.Color.Transparent;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.Font = new System.Drawing.Font("Monotype Corsiva", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.ForeColor = System.Drawing.Color.Yellow;
+            this.backButton.Location = new System.Drawing.Point(152, 476);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(320, 72);
             this.backButton.TabIndex = 7;
             this.backButton.Text = "BACK";
-            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // PlayerScreen
