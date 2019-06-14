@@ -207,6 +207,8 @@ namespace DeadOpsArcade
             zTimer++;
             if (zTimer > 80)
             {
+                score = (score + 100);
+                scoreLabel.Text = (heroName + "'s  " + "Score: " + score);
                 spawnTime = true;
                 zTimer = 0;
             }
@@ -328,8 +330,6 @@ namespace DeadOpsArcade
             foreach (int i in zombiesToRemove)
             {
                 zombies.RemoveAt(i);
-                score = (score + 100);
-                scoreLabel.Text = (heroName + "'s  " + "Score: " + score);
             }
         }
         #endregion
