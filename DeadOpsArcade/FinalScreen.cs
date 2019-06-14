@@ -11,14 +11,20 @@ using System.Xml;
 
 namespace DeadOpsArcade
 {
-    public partial class HighScreen : UserControl
+    public partial class FinalScreen : UserControl
     {
-        public HighScreen()
+        public FinalScreen()
         {
             InitializeComponent();
+            yourScoreLabel.Text = "Your Score Was:  " + GameScreen.score;
         }
 
-        private void backButton_Click_1(object sender, EventArgs e)
+        private void highButton_Click(object sender, EventArgs e)
+        {
+            Form1.ChangeScreen(this, "HighScreen");
+        }
+
+        private void menuButton_Click(object sender, EventArgs e)
         {
             Form1.ChangeScreen(this, "MainScreen");
         }

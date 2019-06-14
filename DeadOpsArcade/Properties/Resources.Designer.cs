@@ -111,6 +111,15 @@ namespace DeadOpsArcade.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Highscores {
+            get {
+                return ResourceManager.GetString("Highscores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap PlayerScreen {

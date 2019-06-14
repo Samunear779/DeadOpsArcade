@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace DeadOpsArcade
 {
@@ -35,6 +36,7 @@ namespace DeadOpsArcade
 
             bulletSpeed = 5;
             bulletSize = 5;
+            loadScores();
         }
 
         #region Global Variables and Declarations
@@ -55,6 +57,7 @@ namespace DeadOpsArcade
         List<Bullet> bullets = new List<Bullet>();
         List<PowerUp> powerUps = new List<PowerUp>();
         List<int> bulletsToRemove = new List<int>();
+        List<Score> highscores = new List<Score>();
 
         int bulletSize;
         int bulletSpeed;
@@ -62,7 +65,7 @@ namespace DeadOpsArcade
         bool bulletTime;
         public static string facing;
         int zombieSpawn;
-        int score = 0;
+        public static int score = 0;
 
         //zombie values
         int zombieX;
@@ -262,11 +265,11 @@ namespace DeadOpsArcade
             {
                 if (hero.Collision(z))
                 {
-                    hero.health = (hero.health - 1);
+                    hero.health = (hero.health - 50);
                     if (hero.health <= 0)
                     {
-                        gameTimer.Enabled = false;
-                        //show highscores then close game 
+                        saveScore();
+                        gameOver();
                     }
                 }
             }
@@ -280,6 +283,13 @@ namespace DeadOpsArcade
 
             //Check for hero and powerUp collision
             Refresh();
+        }
+
+        public void gameOver()
+        {
+            gameTimer.Enabled = false;
+            Form1.ChangeScreen(this, "FinalScreen");
+            score = 0;
         }
 
         #region multiple list collision 
@@ -356,6 +366,47 @@ namespace DeadOpsArcade
             {
                 bullets.RemoveAt(i);
             }
+        }
+        #endregion
+
+        #region Saving and loading scores 
+        public void loadScores()
+        {
+            string newName, newScore;
+            XmlReader reader = XmlReader.Create("Resources/Highscores.xml");
+
+            while (reader.Read())
+            {
+                if (reader.NodeType == XmlNodeType.Text)
+                {
+                    newName = reader.ReadString();
+
+                    //reader.ReadToNextSibling("score");
+                    newScore = reader.ReadString();
+
+                    Score s = new Score(heroName, newScore);
+                    highscores.Add(s);
+                }
+            }
+            reader.Close();
+        }
+
+        public void saveScore()
+        {
+            XmlWriter writer = XmlWriter.Create("Resources/Highscores.xml", null);
+
+            writer.WriteStartElement("Scores");
+
+            foreach (Score s in highscores)
+            {
+                writer.WriteStartElement("GameSave");
+
+                writer.WriteElementString("name", heroName);
+                writer.WriteElementString("make", score + "");
+                writer.WriteEndElement();
+            }
+            writer.WriteEndElement();
+            writer.Close();
         }
         #endregion
 
