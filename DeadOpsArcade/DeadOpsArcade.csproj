@@ -66,12 +66,6 @@
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Hero.cs" />
-    <Compile Include="HighScore.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="HighScore.Designer.cs">
-      <DependentUpon>HighScore.cs</DependentUpon>
-    </Compile>
     <Compile Include="HighScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -179,7 +173,9 @@
     <None Include="Resources\gameScreen.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Highscores.xml" />
+    <None Include="Resources\Highscores.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

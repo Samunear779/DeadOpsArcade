@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DeadOpsArcade
 {
-    class Score
+    public class Score
     {
         public string score;
         public string name;

@@ -16,11 +16,20 @@ namespace DeadOpsArcade
         public HighScreen()
         {
             InitializeComponent();
+            displayScores();
         }
 
         private void backButton_Click_1(object sender, EventArgs e)
         {
             Form1.ChangeScreen(this, "MainScreen");
+        }
+
+        public void displayScores()
+        {
+            foreach (Score s in Form1.highscores)
+            {
+                scoresLabel.Text += s.score + " " + s.name + "\n";
+            }
         }
     }
 }
