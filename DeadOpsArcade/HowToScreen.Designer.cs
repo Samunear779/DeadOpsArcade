@@ -33,7 +33,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(407, 395);
+            this.backButton.Location = new System.Drawing.Point(284, 378);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(441, 115);
             this.backButton.TabIndex = 0;
@@ -46,9 +46,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::DeadOpsArcade.Properties.Resources.PlayerScreen;
             this.Controls.Add(this.backButton);
             this.Name = "HowToScreen";
-            this.Size = new System.Drawing.Size(1280, 720);
+            this.Size = new System.Drawing.Size(1000, 700);
             this.ResumeLayout(false);
 
         }

@@ -35,9 +35,9 @@
             // 
             // playerButton
             // 
-            this.playerButton.Location = new System.Drawing.Point(366, 227);
+            this.playerButton.Location = new System.Drawing.Point(437, 468);
             this.playerButton.Name = "playerButton";
-            this.playerButton.Size = new System.Drawing.Size(384, 101);
+            this.playerButton.Size = new System.Drawing.Size(147, 54);
             this.playerButton.TabIndex = 0;
             this.playerButton.Text = "Player Creation";
             this.playerButton.UseVisualStyleBackColor = true;
@@ -45,9 +45,9 @@
             // 
             // highScoreButton
             // 
-            this.highScoreButton.Location = new System.Drawing.Point(366, 394);
+            this.highScoreButton.Location = new System.Drawing.Point(647, 468);
             this.highScoreButton.Name = "highScoreButton";
-            this.highScoreButton.Size = new System.Drawing.Size(384, 101);
+            this.highScoreButton.Size = new System.Drawing.Size(166, 41);
             this.highScoreButton.TabIndex = 1;
             this.highScoreButton.Text = "High Scores";
             this.highScoreButton.UseVisualStyleBackColor = true;
@@ -55,9 +55,9 @@
             // 
             // howToButton
             // 
-            this.howToButton.Location = new System.Drawing.Point(366, 53);
+            this.howToButton.Location = new System.Drawing.Point(241, 468);
             this.howToButton.Name = "howToButton";
-            this.howToButton.Size = new System.Drawing.Size(384, 110);
+            this.howToButton.Size = new System.Drawing.Size(128, 44);
             this.howToButton.TabIndex = 2;
             this.howToButton.Text = "How To Play";
             this.howToButton.UseVisualStyleBackColor = true;
@@ -67,11 +67,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::DeadOpsArcade.Properties.Resources.Title;
             this.Controls.Add(this.howToButton);
             this.Controls.Add(this.highScoreButton);
             this.Controls.Add(this.playerButton);
             this.Name = "MainMenu";
-            this.Size = new System.Drawing.Size(1280, 720);
+            this.Size = new System.Drawing.Size(1000, 700);
             this.ResumeLayout(false);
 
         }

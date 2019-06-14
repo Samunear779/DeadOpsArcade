@@ -9,9 +9,9 @@ namespace DeadOpsArcade
 {
     class Hero
     {
-        public int x, y, width, height, speed, health, damage, angle;
+        public int x, y, width, height, speed, health, damage;
   
-        public Hero(int _x, int _y, int _width, int _height, int _speed, int _health, int _damage, int _angle)
+        public Hero(int _x, int _y, int _width, int _height, int _speed, int _health, int _damage)
         {
             x = _x;
             y = _y;
@@ -20,7 +20,6 @@ namespace DeadOpsArcade
             speed = _speed;
             health = _health;
             damage = _damage;
-            angle = _angle;
         }
 
         //move the hero
@@ -47,20 +46,7 @@ namespace DeadOpsArcade
                 GameScreen.facing = "down";
             }
         }
-
-        //turn the hero maybe if I ever do this 
-        public void Turn(string direction)
-        {
-            if (direction == "left")
-            {
-                angle -= speed;
-            }
-            else if (direction == "right")
-            {
-                angle += speed;
-            }
-        }
-
+    
         public Boolean Collision(Zombie z)
         {
             Rectangle zombieRec = new Rectangle(z.x, z.y, z.width, z.height);

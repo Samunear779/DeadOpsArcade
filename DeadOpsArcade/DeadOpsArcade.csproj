@@ -156,5 +156,17 @@
   <ItemGroup>
     <None Include="Resources\HeroDown.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dead Ops Title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayerScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gameScreen.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

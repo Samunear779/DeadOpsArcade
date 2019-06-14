@@ -17,28 +17,24 @@ namespace DeadOpsArcade
             InitializeComponent();
             OnStart();
             gameTimer.Enabled = true;
-
         }
 
         public void OnStart()
         {
             //Create Hero 
-            int heroWidth = 30;
-            int heroHeight = 30;
+            int heroWidth = 20;
+            int heroHeight = 20;
             int heroX = (this.Width / 2);
             int heroY = (this.Height / 2);
             int heroDamage = 50;
-            int heroAngle = 0;
-
 
             heroX = ((this.Width / 2) - (heroWidth / 2));
             heroY = ((this.Height / 2) - (heroHeight / 2));
 
-            hero = new Hero(heroX, heroY, heroWidth, heroHeight, heroSpeed, heroHealth, heroDamage, heroAngle);
+            hero = new Hero(heroX, heroY, heroWidth, heroHeight, heroSpeed, heroHealth, heroDamage);
 
             bulletSpeed = 5;
             bulletSize = 5;
-
         }
 
         #region Global Variables and Declarations
@@ -47,15 +43,12 @@ namespace DeadOpsArcade
         public static int heroHealth;
         public static int heroSpeed = 4;
 
-        Boolean wKeyDown, aKeyDown, sKeyDown, dKeyDown, spaceKeyDown, upKeyDown, leftKeyDown, downKeyDown, rightKeyDown;
+        Boolean wKeyDown, aKeyDown, sKeyDown, dKeyDown, spaceKeyDown;
 
-        //game objects 
-        Zombie zombie;
+        //game objects
         Hero hero;
-        Bullet bullet;
 
         Image heroImage = Properties.Resources.HeroRight;
-
 
         //Game Lists
         List<Zombie> zombies = new List<Zombie>();
@@ -69,14 +62,15 @@ namespace DeadOpsArcade
         bool bulletTime;
         public static string facing;
         int zombieSpawn;
+        int score = 0;
 
         //zombie values
         int zombieX;
         int zombieY;
 
-        int zombieWidth = 30;
-        int zombieHeight = 30;
-        int zombieHealth = 100;
+        int zombieWidth = 55;
+        int zombieHeight = 55;
+        int zombieHealth = 200;
         int zombieSpeed = 1;
         int zTimer, bTimer;
 
@@ -107,20 +101,6 @@ namespace DeadOpsArcade
                 case Keys.Space:
                     spaceKeyDown = true;
                     break;
-
-                //shooting direction 
-                case Keys.Up:
-                    upKeyDown = true;
-                    break;
-                case Keys.Left:
-                    leftKeyDown = true;
-                    break;
-                case Keys.Down:
-                    downKeyDown = true;
-                    break;
-                case Keys.Right:
-                    rightKeyDown = true;
-                    break;
             }
         }
 
@@ -143,20 +123,6 @@ namespace DeadOpsArcade
                     break;
                 case Keys.Space:
                     spaceKeyDown = false;
-                    break;
-
-                //shooting direction 
-                case Keys.Up:
-                    upKeyDown = false;
-                    break;
-                case Keys.Left:
-                    leftKeyDown = false;
-                    break;
-                case Keys.Down:
-                    downKeyDown = false;
-                    break;
-                case Keys.Right:
-                    rightKeyDown = false;
                     break;
             }
         }
@@ -210,9 +176,27 @@ namespace DeadOpsArcade
                 bTimer = 0;
             }
             //fire bullet
-            if (spaceKeyDown && bulletTime)
+            if (spaceKeyDown && bulletTime && facing == "left")
             {
-                Bullet b = new Bullet(hero.x, hero.y, bulletSize, bulletSpeed, facing);
+                Bullet b = new Bullet(hero.x, hero.y + 11, bulletSize, bulletSpeed, facing);
+                bullets.Add(b);
+                bulletTime = false;
+            }
+            if (spaceKeyDown && bulletTime && facing == "right")
+            {
+                Bullet b = new Bullet(hero.x + 70, hero.y + 37, bulletSize, bulletSpeed, facing);
+                bullets.Add(b);
+                bulletTime = false;
+            }
+            if (spaceKeyDown && bulletTime && facing == "up")
+            {
+                Bullet b = new Bullet(hero.x + 35, hero.y, bulletSize, bulletSpeed, facing);
+                bullets.Add(b);
+                bulletTime = false;
+            }
+            if (spaceKeyDown && bulletTime && facing == "down")
+            {
+                Bullet b = new Bullet(hero.x + 10, hero.y + 70, bulletSize, bulletSpeed, facing);
                 bullets.Add(b);
                 bulletTime = false;
             }
@@ -221,8 +205,10 @@ namespace DeadOpsArcade
             #region spawn zombie
             //determine where the zombie will spawn then create the zombie if it is time and add it to the list;
             zTimer++;
-            if (zTimer > 100)
+            if (zTimer > 80)
             {
+                score = (score + 100);
+                scoreLabel.Text = ("Score: " + score);
                 spawnTime = true;
                 zTimer = 0;
             }
@@ -288,18 +274,17 @@ namespace DeadOpsArcade
             //Add bullets that have went off screen to the bulletsToRemove list 
             OffScreen();
 
-            //Check for bullet and zombie collision 
-           
+            //Check for bullets and zombies collision 
+            BulletsZombiesCollision();
             #endregion
 
             //Check for hero and powerUp collision
             Refresh();
-
         }
 
         #region multiple list collision 
 
-        public void BulletsMonstersCollision()
+        public void BulletsZombiesCollision()
         {
             //will contain index values of all bullets that have collided with a monster 
             List<int> bulletsToRemove = new List<int>();
@@ -322,15 +307,29 @@ namespace DeadOpsArcade
                             bulletsToRemove.Add(bullets.IndexOf(b));
                         }
 
-                        //checks to make sure that the monster is not already in removal list 
-                        if (!zombiesToRemove.Contains(zombies.IndexOf(z)))
+                        //remove zombies health 
+                        z.health = (z.health - hero.damage);
 
+                        //checks to make sure that the monster is not already in removal list and if the zombie is out of health 
+                        if (!zombiesToRemove.Contains(zombies.IndexOf(z)) && z.health == 0)
                         {
                             //add the index value from monsters of the monster that collided 
                             zombiesToRemove.Add(zombies.IndexOf(z));
                         }
                     }
                 }
+            }
+            //reverse lists so when removing you do so from the end of the list first 
+            bulletsToRemove.Reverse();
+            zombiesToRemove.Reverse();
+
+            foreach (int i in bulletsToRemove)
+            {
+                bullets.RemoveAt(i);
+            }
+            foreach (int i in zombiesToRemove)
+            {
+                zombies.RemoveAt(i);
             }
         }
         #endregion

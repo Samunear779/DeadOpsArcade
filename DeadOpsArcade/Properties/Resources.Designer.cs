@@ -63,6 +63,16 @@ namespace DeadOpsArcade.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gameScreen {
+            get {
+                object obj = ResourceManager.GetObject("gameScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HeroDown {
             get {
                 object obj = ResourceManager.GetObject("HeroDown", resourceCulture);
@@ -96,6 +106,26 @@ namespace DeadOpsArcade.Properties {
         internal static System.Drawing.Bitmap HeroUp {
             get {
                 object obj = ResourceManager.GetObject("HeroUp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PlayerScreen {
+            get {
+                object obj = ResourceManager.GetObject("PlayerScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Title {
+            get {
+                object obj = ResourceManager.GetObject("Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

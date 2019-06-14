@@ -33,21 +33,24 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(531, 361);
+            this.backButton.BackColor = System.Drawing.Color.Transparent;
+            this.backButton.ForeColor = System.Drawing.Color.Gold;
+            this.backButton.Location = new System.Drawing.Point(395, 415);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(463, 131);
+            this.backButton.Size = new System.Drawing.Size(155, 80);
             this.backButton.TabIndex = 0;
             this.backButton.Text = "BACK";
-            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // HighScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::DeadOpsArcade.Properties.Resources.PlayerScreen;
             this.Controls.Add(this.backButton);
             this.Name = "HighScreen";
-            this.Size = new System.Drawing.Size(1280, 720);
+            this.Size = new System.Drawing.Size(1000, 700);
             this.ResumeLayout(false);
 
         }

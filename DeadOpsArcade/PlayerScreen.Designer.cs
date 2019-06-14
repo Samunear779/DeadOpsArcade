@@ -88,7 +88,7 @@
             // 
             // playButton
             // 
-            this.playButton.Location = new System.Drawing.Point(604, 550);
+            this.playButton.Location = new System.Drawing.Point(351, 98);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(320, 72);
             this.playButton.TabIndex = 6;
@@ -98,7 +98,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(246, 550);
+            this.backButton.Location = new System.Drawing.Point(341, 476);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(320, 72);
             this.backButton.TabIndex = 7;
@@ -110,6 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::DeadOpsArcade.Properties.Resources.PlayerScreen;
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.playButton);
             this.Controls.Add(this.class3Box);
@@ -118,7 +119,7 @@
             this.Controls.Add(this.playerLabel);
             this.Controls.Add(this.heroTextBox);
             this.Name = "PlayerScreen";
-            this.Size = new System.Drawing.Size(1280, 720);
+            this.Size = new System.Drawing.Size(1000, 700);
             this.ResumeLayout(false);
             this.PerformLayout();
 
