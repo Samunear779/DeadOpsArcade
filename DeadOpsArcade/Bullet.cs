@@ -12,6 +12,7 @@ namespace DeadOpsArcade
         public int x, y, size, speed;
         public string direction;
         
+        //bullet constructor
         public Bullet(int _x, int _y, int _size, int _speed, string _direction)
         {
             x = _x;
@@ -21,6 +22,7 @@ namespace DeadOpsArcade
             direction = _direction;
         }
 
+        //move the bullet the same direction the hero is facing when they fire it 
         public void Move()
         {
            if(direction == "left")

@@ -17,6 +17,7 @@ namespace DeadOpsArcade
         {
             InitializeComponent();
             OnStart();
+            //start the game loop
             gameTimer.Enabled = true;
         }
 
@@ -28,28 +29,30 @@ namespace DeadOpsArcade
             int heroX = (this.Width / 2);
             int heroY = (this.Height / 2);
             int heroDamage = 50;
-
             heroX = ((this.Width / 2) - (heroWidth / 2));
             heroY = ((this.Height / 2) - (heroHeight / 2));
 
+            //create the hero 
             hero = new Hero(heroX, heroY, heroWidth, heroHeight, heroSpeed, heroHealth, heroDamage);
 
+            //set bullet values
             bulletSpeed = 5;
             bulletSize = 5;
-
         }
 
         #region Global Variables and Declarations
+        //public hero values 
         public static string heroName;
-        public static int lives;
         public static int heroHealth = 200;
         public static int heroSpeed = 4;
 
+        //key press booleans 
         Boolean wKeyDown, aKeyDown, sKeyDown, dKeyDown, spaceKeyDown;
 
         //game objects
         Hero hero;
-
+        
+        //hero image 
         Image heroImage = Properties.Resources.HeroRight;
 
         //Game Lists
@@ -58,32 +61,35 @@ namespace DeadOpsArcade
         List<PowerUp> powerUps = new List<PowerUp>();
         List<int> bulletsToRemove = new List<int>();
 
-
+        //create bullet varibales 
         int bulletSize;
         int bulletSpeed;
-        bool spawnTime = false;
         bool bulletTime;
-        public static string facing;
-        int zombieSpawn;
+
+        //create misc variables 
+        bool spawnTime = false;
+        public static string facing;      
         public static int score = 0;
 
         //zombie values
         int zombieX;
         int zombieY;
-
         int zombieWidth = 55;
         int zombieHeight = 55;
         int zombieHealth = 200;
         int zombieSpeed = 1;
+        int zombieSpawn;
         int zTimer, bTimer;
-
 
         //rand number gen
         Random randGen = new Random();
+
+        //create bullet brush 
         SolidBrush bulletBrush = new SolidBrush(Color.Yellow);
         #endregion
 
         #region Key Presses
+        //code for all the key down actions 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             switch (e.KeyCode)
@@ -107,6 +113,7 @@ namespace DeadOpsArcade
             }
         }
 
+        //code for all the Key up actions 
         private void GameScreen_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -134,7 +141,7 @@ namespace DeadOpsArcade
         private void gameTimer_Tick(object sender, EventArgs e)
         {
             #region hero movement and direction
-            //Move hero
+            //Move hero based on which key is being pessed down 
             if (aKeyDown && hero.x > 0)
             {
                 hero.Move("left");
@@ -153,6 +160,7 @@ namespace DeadOpsArcade
             }
 
             //rotate the hero depending which direction they moved
+            //This facing variable is important so the image wont flip when you stop pressing the move button 
             if (facing == "left")
             {
                 heroImage = Properties.Resources.HeroLeft;
@@ -178,7 +186,9 @@ namespace DeadOpsArcade
                 bulletTime = true;
                 bTimer = 0;
             }
-            //fire bullet
+
+            //fire bullet in the direction the player is facing and if it is time for a new bullet
+
             if (spaceKeyDown && bulletTime && facing == "left")
             {
                 Bullet b = new Bullet(hero.x, hero.y + 11, bulletSize, bulletSpeed, facing);
@@ -206,7 +216,9 @@ namespace DeadOpsArcade
             #endregion
 
             #region spawn zombie
+
             //determine where the zombie will spawn then create the zombie if it is time and add it to the list;
+            //add to the zombie spawn timer
             zTimer++;
             if (zTimer > 80)
             {
@@ -216,6 +228,7 @@ namespace DeadOpsArcade
                 zTimer = 0;
             }
 
+            //use the random number generator to decide where to spawn the zombie 
             if (spawnTime)
             {
                 zombieSpawn = randGen.Next(1, 5);
@@ -239,14 +252,18 @@ namespace DeadOpsArcade
                         break;
                 }
 
+                //with the random cords create the zombie object and add it to the list 
                 Zombie z = new Zombie(zombieX, zombieY, zombieWidth, zombieHeight, zombieSpeed, zombieHealth);
                 zombies.Add(z);
+
+                //reset the zombie spawn time 
                 spawnTime = false;
             }
             #endregion
 
             #region Movement
-            //Move Bullets
+
+            //Move each bullet on the screen 
             foreach (Bullet b in bullets)
             {
                 b.Move();
@@ -268,7 +285,7 @@ namespace DeadOpsArcade
                     hero.health = (hero.health - 50);
                     if (hero.health <= 0)
                     {
-                     //   saveScore();
+                        //run the game over method 
                         gameOver();
                     }
                 }
@@ -282,9 +299,11 @@ namespace DeadOpsArcade
             #endregion
 
             //Check for hero and powerUp collision
+            //probably won't have time for power ups :(
             Refresh();
         }
 
+        //if the game ends then stop the game loop, reset the score and change the screen to the final screen
         public void gameOver()
         {
             gameTimer.Enabled = false;
@@ -333,6 +352,7 @@ namespace DeadOpsArcade
             bulletsToRemove.Reverse();
             zombiesToRemove.Reverse();
 
+            //remove the objects from the ToRemove lists 
             foreach (int i in bulletsToRemove)
             {
                 bullets.RemoveAt(i);
@@ -347,6 +367,7 @@ namespace DeadOpsArcade
         #region remove bullets that were off screen
         public void OffScreen()
         {
+            //create off screen list
             List<int> toRemove = new List<int>();
 
             //gets the index value of the bullets that have gone off screen and places them in
@@ -362,6 +383,7 @@ namespace DeadOpsArcade
             //reverse list so when removing you do so from the end of the list first
             toRemove.Reverse();
 
+            //remove all the objects in the list 
             foreach (int i in toRemove)
             {
                 bullets.RemoveAt(i);

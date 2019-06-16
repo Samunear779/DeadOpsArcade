@@ -21,9 +21,11 @@ namespace DeadOpsArcade
             MainMenu ms = new MainMenu();
             this.Controls.Add(ms);
             ms.Location = new Point((this.Width - ms.Width) / 2, (this.Height - ms.Height) / 2);
+            //load thhe xml file with the scores on it 
             loadScores();
         }
 
+        //load the scores from the xml file 
         public void loadScores()
         {
             string newName, newScore;
@@ -44,6 +46,7 @@ namespace DeadOpsArcade
             reader.Close();
         }
 
+        //change screen method to easily change screen throught the program 
         public static void ChangeScreen(UserControl current, string next)
         {
             //f is set to the form that the current control is on

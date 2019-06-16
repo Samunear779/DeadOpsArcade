@@ -11,6 +11,7 @@ namespace DeadOpsArcade
     {
         public int x, y, width, height, speed, health;
 
+        //zombie constructor 
         public Zombie (int _x, int _y, int _width, int _height, int _speed, int _health)
         {
             x = _x;
@@ -21,6 +22,7 @@ namespace DeadOpsArcade
             health = _health;
         }
 
+        //move the zombie and have them move towords the hero 
         public void Move (int heroX,int heroY)
         {
             if(x < heroX)
@@ -42,6 +44,7 @@ namespace DeadOpsArcade
             }
         }
 
+        //hero and zombie collision, return true if they are colliding 
         public Boolean Collision(Bullet b)
         {
             Rectangle bulletRec = new Rectangle(b.x, b.y, b.size, b.size);

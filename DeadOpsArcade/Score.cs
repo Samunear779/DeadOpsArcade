@@ -8,6 +8,7 @@ namespace DeadOpsArcade
 {
     public class Score
     {
+        //score class for saving to xml 
         public string score;
         public string name;
 

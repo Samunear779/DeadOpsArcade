@@ -16,23 +16,28 @@ namespace DeadOpsArcade
         string name, score;
         public FinalScreen()
         {
-            InitializeComponent();          
+            InitializeComponent(); 
+            //set local variables to the variables from the gamescreen
             name = GameScreen.heroName;
             score = GameScreen.score + "";
+            //display the final score 
             yourScoreLabel.Text = "Your Score Was:  " + score;
             saveScore();
         }
 
+        //change to the highscore screen if the button is pressed 
         private void highButton_Click(object sender, EventArgs e)
         {
             Form1.ChangeScreen(this, "HighScreen");
         }
 
+        //switch to the main menu screen if the button is pressed 
         private void menuButton_Click(object sender, EventArgs e)
         {
             Form1.ChangeScreen(this, "MainScreen");
         }
 
+        //save the score to an xml file 
         public void saveScore()
         {
             Score sc = new Score(name,score);

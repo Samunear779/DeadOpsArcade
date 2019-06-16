@@ -11,6 +11,7 @@ namespace DeadOpsArcade
     {
         public int x, y, width, height, speed, health, damage;
   
+        //hero constructor 
         public Hero(int _x, int _y, int _width, int _height, int _speed, int _health, int _damage)
         {
             x = _x;
@@ -22,7 +23,7 @@ namespace DeadOpsArcade
             damage = _damage;
         }
 
-        //move the hero
+        //move the hero based on what key is being pressed down 
         public void Move(string direction)
         {
             if (direction == "left")
@@ -47,6 +48,7 @@ namespace DeadOpsArcade
             }
         }
     
+        //zombie hero collision, return true if they are colliding 
         public Boolean Collision(Zombie z)
         {
             Rectangle zombieRec = new Rectangle(z.x, z.y, z.width, z.height);

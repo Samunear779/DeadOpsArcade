@@ -17,6 +17,7 @@ namespace DeadOpsArcade
             InitializeComponent();
         }
 
+        //switch to the main menu screen 
         private void backButton_Click(object sender, EventArgs e)
         {
             Form1.ChangeScreen(this, "MainScreen");
