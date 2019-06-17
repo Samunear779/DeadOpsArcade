@@ -30,6 +30,7 @@
         {
             this.backButton = new System.Windows.Forms.Button();
             this.scoresLabel = new System.Windows.Forms.Label();
+            this.scoreLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // backButton
@@ -58,11 +59,24 @@
             this.scoresLabel.Size = new System.Drawing.Size(0, 45);
             this.scoresLabel.TabIndex = 3;
             // 
+            // scoreLabel
+            // 
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.BackColor = System.Drawing.Color.Transparent;
+            this.scoreLabel.Font = new System.Drawing.Font("Monotype Corsiva", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreLabel.ForeColor = System.Drawing.Color.Yellow;
+            this.scoreLabel.Location = new System.Drawing.Point(214, 94);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(209, 45);
+            this.scoreLabel.TabIndex = 4;
+            this.scoreLabel.Text = "Name:    Score";
+            // 
             // HighScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DeadOpsArcade.Properties.Resources.PlayerScreen;
+            this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.scoresLabel);
             this.Controls.Add(this.backButton);
             this.Name = "HighScreen";
@@ -76,5 +90,6 @@
 
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Label scoresLabel;
+        private System.Windows.Forms.Label scoreLabel;
     }
 }

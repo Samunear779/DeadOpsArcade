@@ -30,7 +30,7 @@ namespace DeadOpsArcade
         {
             foreach (Score s in Form1.highscores)
             {
-                scoresLabel.Text += s.score + " " + s.name + "\n";
+                scoresLabel.Text += s.name + ":     " + s.score + "\n";
             }
         }
     }
