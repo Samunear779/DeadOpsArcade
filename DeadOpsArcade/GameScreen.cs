@@ -8,6 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Media;
+
+
+//Dead Ops Arcade ICS4U final project 
+//Sam Near 
+//June 16/2019 
+//It's been a good year Mr.T :)
 
 namespace DeadOpsArcade
 {
@@ -43,9 +50,9 @@ namespace DeadOpsArcade
         #region Global Variables and Declarations
         //public hero values 
         public static string heroName;
-        public static int heroHealth = 200;
-        public static int heroSpeed = 4;
-
+        public static int heroBSpeed;
+        public static int heroSpeed;
+        int heroHealth = 100;
         //key press booleans 
         Boolean wKeyDown, aKeyDown, sKeyDown, dKeyDown, spaceKeyDown;
 
@@ -81,8 +88,9 @@ namespace DeadOpsArcade
         int zombieSpawn;
         int zTimer, bTimer;
 
-        //rand number gen
+        //rand number gen and sound player 
         Random randGen = new Random();
+        SoundPlayer bulletPlayer = new SoundPlayer(Properties.Resources.GunShot2);
 
         //create bullet brush 
         SolidBrush bulletBrush = new SolidBrush(Color.Yellow);
@@ -181,7 +189,7 @@ namespace DeadOpsArcade
 
             #region fire or "spawn bullet"
             bTimer++;
-            if (bTimer == 10)
+            if (bTimer == heroBSpeed)
             {
                 bulletTime = true;
                 bTimer = 0;
@@ -194,24 +202,28 @@ namespace DeadOpsArcade
                 Bullet b = new Bullet(hero.x, hero.y + 11, bulletSize, bulletSpeed, facing);
                 bullets.Add(b);
                 bulletTime = false;
+                bulletPlayer.Play();
             }
             if (spaceKeyDown && bulletTime && facing == "right")
             {
                 Bullet b = new Bullet(hero.x + 70, hero.y + 37, bulletSize, bulletSpeed, facing);
                 bullets.Add(b);
                 bulletTime = false;
+                bulletPlayer.Play();
             }
             if (spaceKeyDown && bulletTime && facing == "up")
             {
                 Bullet b = new Bullet(hero.x + 35, hero.y, bulletSize, bulletSpeed, facing);
                 bullets.Add(b);
                 bulletTime = false;
+                bulletPlayer.Play();
             }
             if (spaceKeyDown && bulletTime && facing == "down")
             {
                 Bullet b = new Bullet(hero.x + 10, hero.y + 70, bulletSize, bulletSpeed, facing);
                 bullets.Add(b);
                 bulletTime = false;
+                bulletPlayer.Play();
             }
             #endregion
 

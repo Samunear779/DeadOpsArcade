@@ -177,5 +177,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barbarianism.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GunShot.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GunShot2.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

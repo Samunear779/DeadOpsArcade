@@ -8,12 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Media;
 
 namespace DeadOpsArcade
 {
     public partial class Form1 : Form
     {
         public static List<Score> highscores = new List<Score>();
+        SoundPlayer musicPlayer = new SoundPlayer(Properties.Resources.Barbarianism);
+
+        
         public Form1()
         {
             InitializeComponent();
@@ -23,6 +27,7 @@ namespace DeadOpsArcade
             ms.Location = new Point((this.Width - ms.Width) / 2, (this.Height - ms.Height) / 2);
             //load thhe xml file with the scores on it 
             loadScores();
+            musicPlayer.PlayLooping();
         }
 
         //load the scores from the xml file 

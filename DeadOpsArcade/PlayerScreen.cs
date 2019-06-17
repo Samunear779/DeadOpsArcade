@@ -12,38 +12,59 @@ namespace DeadOpsArcade
 {
     public partial class PlayerScreen : UserControl
     {
+        bool classSelected = false;
+        bool nameEntered = false;
         public PlayerScreen()
         {
             InitializeComponent();
+            playButton.Enabled = false;
         }
 
         //save class 1 values 
         private void class1Box_CheckedChanged(object sender, EventArgs e)
         {
-            if(class1Box.Checked == true)
+            if (class1Box.Checked == true && classSelected == false)
             {
-                GameScreen.heroHealth = 300;
+                GameScreen.heroBSpeed = 10;
                 GameScreen.heroSpeed = 2;
+                class2Box.Checked = false;
+                class3Box.Checked = false;
+                classSelected = true;
+                class2Box.Enabled = false;
+                class3Box.Enabled = false;
+                playButtonEnable();
             }
         }
 
         //save class 2 values 
         private void calssBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (class2Box.Checked == true)
+            if (class2Box.Checked == true && classSelected == false)
             {
-                GameScreen.heroHealth = 200;
+                GameScreen.heroBSpeed = 15;
                 GameScreen.heroSpeed = 4;
+                class1Box.Checked = false;
+                class3Box.Checked = false;
+                classSelected = true;
+                class1Box.Enabled = false;
+                class3Box.Enabled = false;
+                playButtonEnable();
             }
         }
 
         //save class 3 values 
         private void classBox3_CheckedChanged(object sender, EventArgs e)
         {
-            if (class3Box.Checked == true)
+            if (class3Box.Checked == true && classSelected == false)
             {
-                GameScreen.heroHealth = 100;
+                GameScreen.heroBSpeed = 25;
                 GameScreen.heroSpeed = 6;
+                class1Box.Checked = false;
+                class2Box.Checked = false;
+                classSelected = true;
+                class1Box.Enabled = false;
+                class2Box.Enabled = false;
+                playButtonEnable();
             }
         }
 
@@ -59,6 +80,34 @@ namespace DeadOpsArcade
         {
             Form1.ChangeScreen(this, "GameScreen");
             GameScreen.heroName = heroTextBox.Text;
+        }
+
+        private void heroTextBox_TextChanged(object sender, EventArgs e)
+        {
+            nameEntered = true;
+        }
+
+        //reset the class selection options when the reset button is pressed 
+        private void classButton_Click(object sender, EventArgs e)
+        {
+            heroTextBox.Text = " ";
+            classSelected = false;
+            nameEntered = false;
+            class1Box.Checked = false;
+            class2Box.Checked = false;
+            class3Box.Checked = false;
+            playButton.Enabled = false;
+            class1Box.Enabled = true;
+            class2Box.Enabled = true;
+            class3Box.Enabled = true;
+        }
+
+        public void playButtonEnable()
+        {
+            if (classSelected && nameEntered)
+            {
+                playButton.Enabled = true;
+            }
         }
     }
 }
